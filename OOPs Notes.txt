@@ -1,0 +1,200 @@
+OOPS --------- 
+
+ => Object Oriented Programing System/Structure
+ 
+ => OOPs is a Programing Paradigne (means a way to write program)
+ 
+ => Main Pillars of OOPs   0. Class
+			   1. Object
+			   2. Method
+			   3. Abstraction
+			   4. Polymorphism
+			   5. Inheritence
+			   6. Encapsulation
+
+ => 'SmallTalk' was fisrt Object Oriented Programing Language (Truely Object Oriented Programing Language)
+ 
+ => Example of OOP Language -> JAVA, JavaScript, Python, C#, C++ 
+
+
+ => CLASSES (Animal)			// access modifer of class will be 'default'
+   	
+	-> Class is a collection of objects
+	-> Class is not a real world entity it is a blueprint of objects
+	-> Class does not occupy memory
+
+ 	Syntex :
+	   
+    	    _access modifier_ class(Keyword)_ ClassName(){
+		// a class can contain these things
+		
+		- Methods
+		- Constructors
+		- Fields/Variables
+		- Blocks
+		- Nested Classes
+	    }
+
+ => METHODS (run, eat)               // access modifer of methods will be 'default'
+
+ 	-> A set of code which perform a particular task
+	-> Adavntages of Methods
+           1) Code Reusability
+	   2) Code Optimization
+
+ 	Syntex :
+		
+	   _access modifier_return type_method name(list of parameters){
+		
+	   }
+
+ => OBJECTS (Dog)
+
+	-> Object is a realworld entity
+	-> Object occupy space in memory
+	-> Object is an Instance of a class
+
+	Object consists of :
+		- Identity : Name (Dog)
+		- State : bread(labro), color(Black-White), age(3)
+		- Behaviour : run, eat (it refers to methods)
+	
+	5 Ways to Create Objects :-
+			
+			1. new Keyword
+			2. newInstance() Method
+			3. clone() Method
+			4. deserialization 
+			5. factory Method
+
+ => new (Keyword)  We can create a new object using new keyword in 3 steps
+	 
+	-> Declaration		Animal Dog; 			// here we declared an object
+	-> Instantiation	Dog = new   			// this is the step where object occupy space in memory
+	-> Initialization	Animal Dog = new _Animal()_	// here we put value in occupied memory (By making a constructor _Animal()_ )
+
+	Syntex :  Animal Dog = new Animal();
+		  Dog.run(); 			// We can call methods(run) and state(bread) of an object  by using dot(.) operator 
+
+
+	Example : 
+		
+		class Animal{
+
+		 public void eat(){
+			System.out.println("I am eating");
+		 }
+
+		 public void run(){
+			System.out.println("I am runing");
+		 }
+
+		 public static void main(String args[]){
+		 
+		 Animal Dog = new Animal();
+		 Dog.eat();
+		 Dog.run();
+		 }
+		}
+
+	ways to Initialize an Object : 
+	 	
+	   1).  By refrence Variable
+			
+		  class Animal{
+
+		   String color;
+		   int age;
+
+		   public static void main(String args[]){
+		 
+		   Animal Dog = new Animal();
+		   Dog.color = "Black-White";					|
+		   Dog.age = 3;							| 2 lines extra
+		 
+		  }
+		 }
+
+	   2). By Using Methods
+			
+		  class Animal{
+
+		   String color;
+		   int age;
+		
+		   public void intialize(String c, int a){
+		        color = c;
+			age = a;
+		   }
+
+		   public static void main(String args[]){
+		 
+		   Animal Dog = new Animal();
+		   Dog.intialize("Black-White",3);				|  1 line extra						 
+		 
+		  }
+		 }
+
+	   3). By using Constructor explaination given below
+
+ => CONSTRUCTOR   // Constructor is used to initialize an object NOT* to create
+
+		-> Constructor are similar to methods has same name as Class name
+		-> Constructor have no return type not even void
+		-> Constructor called automatically when we create an object
+		-> Constructor can have 4 access modifiers public, private, protected and default 
+
+		There are three ways to intialize an object but we prefer constructor because it need less lines to intialize
+		upside you can see that refrence variable need 2 extra lines to initialize memory and method need 1 line extra 
+		but by using constructor we can intialize object in same line we created
+
+		Syntex : 
+
+		 class Animal{
+
+		   String color;
+		   int age;
+		   
+		   Animal(String color, int age){		// we used parameterised constructor here
+			this.color = color;
+			this.age = age;
+		   }
+
+		   public static void main(String args[]){
+		 
+		   Animal Dog = new Animal("Black-White",3);			| No extra line
+		 
+		  }
+		 }
+
+		Types Of Constructor :-
+
+			1. Default constructor
+			2. No args constructor (User defined)
+			3. Parameterized Constructor
+			
+		-> Default Constructor :  This constructor created by compiler when there is no contructor avilable and
+					  this constructor has no args(argumants)/patameters
+
+			Syntex: 
+				Test(){
+				  super
+				}
+
+		-> Default Constructor :  This constructor created by user(programer) and has no args(argumants)/patameters
+
+			Syntex: 
+				Test(){
+				  
+				}
+
+		-> Parameterized Constructor :   This Constructor created by user and it contains parameters
+
+			Syntex: 
+				Test(String name){
+				  
+				}
+
+		// constructor dont have any return type because it used to intialize an object no need to return
+		   and when compiler creates a constructor compiler never know which return type we need
+	

@@ -1,0 +1,122 @@
+Java ---------
+
+ -> COMMENTS in java - single line ( //--- ), multiline comment (
+ /*---*/)
+ -> Semicolon(;) used to show that our line ends here.
+ 
+ => VARIABLE-
+            /_ Variables are containers for storing data values
+
+ => DataTypes-
+             /_ Premetive DT                   /_ Non-Premetive DT
+                            - byte                 - String
+                            - short                - class
+			    - int                  - object
+			    - long                 - Arrays
+                            - float
+                            - char
+                            - double
+                            - boolean
+
+ we've use 'new' keyword to declare a non-primitive 
+
+ => STRINGS  are a sequence of characters and it is immutable.
+            /_ String Methods
+                - chrAt(index)
+		- length()
+		- replace("a","b") here we have Aman and output will be -Ambn
+		- substring(from, till) used to cut a specfic part of a String
+
+ => ARRAYS  is a container object - that holds a fixed number of values of a single type
+		/_ Methods -> array.length   //  here we are not using () with length like strings cause its a property of an array not function
+		           -> sort(array)
+
+ => 2D ARRAYS  is a collection of data cells
+
+ => TYPE CASTING  is when you assign a value of one primitive data type to another type
+                /_ Types  -> Implicit casting   // you can assign value a data type in another data type has large capacity. store in in double
+			  -> Explicit casting   // you have to write data type name with different data type ex. int num = 4 + (int)18.12;
+						   in it we can loose some data
+
+ => CONSTANT  a variable whose value cannot change once it has been assigned, and to make any variable constant we have to use -final- keyword
+
+ => OPERATORS  Operators are special symbols that perform specific operations
+
+		+, -, *, /  (Arthematic)
+                ++, --      (unari operator)
+                =           (Asighnment operator)
+
+ => MATH FUNCTIONS    Math.max()
+		      Math.min()
+		      Math.random()
+                      Math.abs()
+    
+ => INPUT  By Using Scanner Class --> Scanner sc = new Scanner(System.in) // for input we use System.in for output we use System.out
+                    
+                    sc.nextInt()   - for numbers (10)
+                    sc.nextFloat() - for decimal numbers (12.1)
+                    sc.next()      - for single word ( name )
+                    sc.nextLine()  - for a line input (Pritam is a good boy)
+
+ => LOGICAL OPERATORS  A logical operator is a symbol or word used to connect two or more expression
+  
+ 			&& ->for AND both condition should return true to exacution of rest of the code giver below
+			|| ->for OR if there is only 1 condition returning true rest of the code will be exacute in this case
+		         ! ->for make conditions false if true
+
+ => COMPARISION OPERATORS operators that compare values and return true or false
+                         
+                         == , >= , <= , != , < , >
+
+ => CONDITIONAL STATMENTS   
+			 
+			-> If-else Statments used to check true or false of condition 
+
+  				if(num == 2){
+				   System.out.println("Run line number 1");
+				}
+				else{
+				   System.out.println("Run line number 2");
+				}
+
+			-> Switch Statments used to run a specific based of different cases 
+
+				Switch(num){
+				   case 1 : 
+					System.out.println("Print case 1");
+					break;
+				   case 2 : 
+					System.out.println("Print case 2");
+					break;
+				   case 3 : 
+					System.out.println("Print case 3");
+					break;
+				   default 
+					System.out.println("Print case 4");
+
+				}
+
+ => LOOPS 
+      
+         For loop , while loop, do-while loop, foreach loop
+
+ => BREAK AND CONTINUE  
+
+ 		-> The Break statement is used to terminate the loop immediately
+
+		-> The Continue statement is used to skip the current iteration of the loop 
+
+ => EXCEPTION HANDLING  Providing an alternative way to handle exception and prevent disturbence
+                        of normal flow of program And we handle exception using try and catch blocks.
+
+ => METHODS / FUNCTIONS  Methods are used to perform certain actions. A method is a block of code which only runs when it is called
+
+		public static void PrintsSumNumbers(int a, int b){
+ 			int c = a+b;
+			System.out.println(c);
+		}
+ 		 
+  
+                       
+                      
+		

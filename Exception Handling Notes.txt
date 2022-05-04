@@ -1,0 +1,190 @@
+Exception:- 
+
+ An exception is an unwanted or unexpacted event, which occurs during 
+ the exacution of a program and distrupts the normal flow of the program.
+
+ Exception contains(print) three things:  1.Exception name  2.Description   3.Stack-trace
+ Methods to print :-                              \/                \/             \/
+		  (a)e.printStackTrace(); |	 yes        |       yes      |     yes
+                  (b)sout(e);             |      yes        |       yes      |     no
+                  (c)sout(e.getMessage(); |      no         |       yes      |     no
+
+  [ e.printStackTrace(); ] is more effective then rest two methods cause it
+                           prints all information about exception as you can see above.
+
+Exception handling:-
+
+ Providing an alternative way to handle exception and prevent disturbence
+ of normal flow of program
+
+(Object is parent class of all the classes in java)
+
+Throwable is parent of Exaption and Error class:-
+
+Exception:
+
+ Exception are occurs by our program
+ controlable- a programer can control at his level.
+ 2 types- (a) Compile time exception (Checked exception).
+          (b) Run time exception (Unchecked exception).
+
+Error:
+
+ Error occurs because of lack of system resources
+ Non-controlable- a programer can't control at his level 
+ 1 type- (a) Run time exception (unchecked exception)
+
+Hierarchy of Excaption Class :-
+  
+   -> Exception
+
+        [Comppiletime Exception]
+
+           (a) ClassNotFountException
+	   (b) InputOutputException
+ 		(1) EOFException
+		(2) FileNotFountException
+		(3) InturruptedInputOutoutException
+
+	   (c) NoSuchMethodException
+	   (d) SQLException
+	   (e) RemoteException
+	   (f) InturruptedException
+
+	[Runtime Exception]
+ 
+	   (a) ArithmeticException
+	   (b) ClassCastException
+	   (c) NullPointerException
+	   (d) IndexOutOfBoundException
+		(1) ArrayIndexOutOfBoundException
+		(2) StringIndexOutOfBoundException
+	   (e) IlligalArumentException
+		(1)NumberFormatException
+	    etc...
+
+  -> Error
+
+        [Runtime Exception]
+     	   (a) AssertionError
+	   (b) VirtualMachineError
+		(1) StackOverflowError
+		(2) OutOfMemoryError
+	   (c) LinkageError
+		(1) VerifyError
+		(2) ClassFormatError
+		(3) NoClassDefFoundError
+	   etc...
+
+ Difference between CompileTimeException (Checked Exception) & RunTimeException(UnChecked Exception)
+
+ (1)Exception that are checked and handled at Compile time CompileTime Exception
+ (2)The prigram gives a compilation error if a methid throws a checked exception
+ (3)A checked exception occurs whenthe chances of a faliure are to high
+ (4)They are direct subclasses of Exception class.
+
+ (1)Exception that are checked at Compile time are Runtime Exception
+ (2)The program compiles fine because compiler is not able to check the exception
+ (3)These exception occurs mostly due to programming mistakes
+ (4)They are direct subclasses of Runtime Exception Class.
+
+We can handle exception using five keywords
+ 1. try 2. catch 3. finally 4. throw 5. throws 
+
+  [ try-catch ]
+   
+    try{
+      // risky code
+    }
+    catch( Exception ){
+      // handling code
+    }
+ =>Example 1
+   It will not show any excaption cause code is correct
+
+        try{
+            int a = 20;
+            int b = 4;
+            int c = a/b;
+            System.out.println(c);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+
+ =>Example 2
+   It will show an excaption cause code is not correct
+
+        try{
+            int a = 20;
+            int b = 0;
+            int c = a/b;
+            System.out.println(c);
+        }
+        catch (Exception e){           //(ArthemeticException)
+            System.out.println(e);
+        }
+
+  [ finally ]
+ 
+     Use if finally block:-
+     
+     we use finally block in java to exacute cleanup code like closing connections, 
+     closing filesand freeing up threads.
+       
+  flow chart ||
+  we can use finally after try-catch blocks or even after try block only.... but we can't use finally alone. 
+  if we tried to write finally block alone then it will not exacute.
+  if exception occurs : try-> carch-> finally
+  if not : try-> finally (finally block exacute always expecting in some cases given below)
+
+   (1.) System.exit() writen before finally block.
+   (2.) if we have an infinite loop before finally block.
+   (3.) if JVM crash first
+   (4.) when exception comes just before or in* finally block.
+   (5.) if try and catch thread have dead.
+
+ #Syntex
+
+        try{
+          // risky code
+        }
+        catch( Exception ){
+          // handling code
+        }
+        finally{
+          // cleanup code
+        }
+
+=>Example
+
+        try{
+            int a = 20;
+            int b = 0;
+            int c = a/b;
+            System.out.println(c);
+            System.out.println("file opening");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        finally {
+            System.out.println("closing file here");
+        }
+
+ # we can write try catch blocks inside finally block.
+ # we never write file closing code with opening code (inside try-block), because what if when exception comes 
+   during reading or writing data of file or rigth after opning the file then we will be
+   directly jumped to catch-block and closing code will never exacute.
+
+
+
+
+
+
+
+
+
+
+
+
