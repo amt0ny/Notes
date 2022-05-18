@@ -1,9 +1,16 @@
 OOPS --------- 
 
+ Q.1 Full form of OOPs ?
+
  => Object Oriented Programing System/Structure
+
  
- => OOPs is a Programing Paradigne (means a way to write program)
+ Q.2 What is OOPs?
+
+ => OOPs is a Programing Paradigne(a way to write program)
  
+Q.3 What are main pillers of OOPs
+
  => Main Pillars of OOPs   0. Class
 			   1. Object
 			   2. Method
@@ -12,10 +19,18 @@ OOPS ---------
 			   5. Inheritence
 			   6. Encapsulation
 
+
+ Q.4 Which language is truly OOPs language?
+
  => 'SmallTalk' was fisrt Object Oriented Programing Language (Truely Object Oriented Programing Language)
+
+
+ Q.5 Name some OOPs based language.. 
  
  => Example of OOP Language -> JAVA, JavaScript, Python, C#, C++ 
 
+
+ Q.6 What is Class Explain With Syntex
 
  => CLASSES (Animal)			// access modifer of class will be 'default'
    	
@@ -35,7 +50,9 @@ OOPS ---------
 		- Nested Classes
 	    }
 
- => METHODS (run, eat)               // access modifer of methods will be 'default'
+ Q.7 What are methods Explain with syntex..
+
+ => METHODS (run, eat)                 // access modifer of methods will be 'default'
 
  	-> A set of code which perform a particular task
 	-> Adavntages of Methods
@@ -48,17 +65,20 @@ OOPS ---------
 		
 	   }
 
+ Q.8 What are objects explain with example?🐱‍👤
+
  => OBJECTS (Dog)
 
 	-> Object is a realworld entity
 	-> Object occupy space in memory
 	-> Object is an Instance of a class
-
 	Object consists of :
 		- Identity : Name (Dog)
 		- State : bread(labro), color(Black-White), age(3)
 		- Behaviour : run, eat (it refers to methods)
 	
+ Q.9 Ways to create an Object?
+
 	5 Ways to Create Objects :-
 			
 			1. new Keyword
@@ -66,6 +86,8 @@ OOPS ---------
 			3. clone() Method
 			4. deserialization 
 			5. factory Method
+
+ Q.10 What are 3 steps to create an Object explain with Example?
 
  => new (Keyword)  We can create a new object using new keyword in 3 steps
 	 
@@ -96,6 +118,8 @@ OOPS ---------
 		 Dog.run();
 		 }
 		}
+
+ Q.11 Ways to intialize an Object Explain with syntex ?
 
 	ways to Initialize an Object : 
 	 	
@@ -137,6 +161,8 @@ OOPS ---------
 
 	   3). By using Constructor explaination given below
 
+ Q.12 What is Constructor Explain in breaf ..
+
  => CONSTRUCTOR   // Constructor is used to initialize an object NOT* to create
 
 		-> Constructor are similar to methods has same name as Class name
@@ -144,13 +170,13 @@ OOPS ---------
 		-> Constructor called automatically when we create an object
 		-> Constructor can have 4 access modifiers public, private, protected and default 
 
-		There are three ways to intialize an object but we prefer constructor because it need less lines to intialize
+		There are three ways to intialize an object but we prefer constructor because it need less lines to intialize..
 		upside you can see that refrence variable need 2 extra lines to initialize memory and method need 1 line extra 
-		but by using constructor we can intialize object in same line we created
+		but by using constructor we can intialize object in the same line we created
 
 		Syntex : 
 
-		 class Animal{
+		 class Animal{ 
 
 		   String color;
 		   int age;
@@ -197,4 +223,977 @@ OOPS ---------
 
 		// constructor dont have any return type because it used to intialize an object no need to return
 		   and when compiler creates a constructor compiler never know which return type we need
+
+ Q.13 What is Inheritence Explain with advantages and disadvantages..
+
+ => #INHERITENCE   // we inherit propertiese from parent to child class using 'extend' Keyword
+
+	It is the procedure of inheriting the properties of parent class into child class
+
+	Syntex  :  
+
+	    Class Animal{					// Parent class
+		
+		void eat(){
+			System.out.println("I AM EATING");
+		}
+	    }
+
+	   Class Dog extends Animal{				// Child class
+		
+		public static void main(String[] args){
+			Dog d = new Dog();
+			d.eat();
+		}
+	   }
+
+
+	Advantages of Inheritence : 
+			1) Code reusablity
+			2) We can achive Polymorphism using inheritence
+
+	Disadvantage of Inheritence :
+			1) In Inheritence Classes are tightly coupled, if you want to change/modify in parent class then it will affect every child class
+
+ Q.14 What are types of Inheritence and Explain them
+
+ => TYPES OF INHERITENCE  : 			// but java has only 3 types of inheritence (first three*)
+
+ 
+	-> Single			in single there is 1 parent class and 1 child class and child class can
+		                        call methods of parent class and its own menthods also
+
+	     Class Animal{					// Parent class
+		
+		void eat(){
+			System.out.println("I AM EATING");
+		}
+	     }
+
+	     Class Dog extends Animal{				// Child class
+		
+		public static void main(String[] args){
+			Dog d = new Dog();
+			d.eat();
+		}
+	     }
+
+	-> Multilevel 			in multilevel class 'C' is child of 'B' and 'B' is child of 'A', So class 'C' can access properties of A
+					indirectly
+
+	     Class Animal{					// Parent class
+		
+		void eat(){
+			System.out.println("I AM EATING");
+		}
+	     }
+
+	     Class Dog extends Animal{				// Child class
+		
+		void run(){
+			System.out.println("I AM RUNNIMG");
+		}
+	     }
+
+	     Class Cat extends Dog(){
+
+		void Sleep(){
+			System.out.println("I AM SLEEPING");
+		}
+
+		pulic static void main(String[] args){
+			Animal obj1 = new Animal();
+			obj1.eat();			// that is possible because we are inhariting Animal method via Animal object
+			//obj1.run();			// that's not leagle
+			//obj1.Sleep();			// that's not leagle
+		
+			Dog obj2 = new Dog();
+			obj2.eat();
+			obj2.run();
+			// obj2.Sleep();
+
+			Cat obj3 = new Cat();
+			obj3.eat();
+			obj3.run();
+			obj3.Sleep();
+			
+	     } 
+
+		-> Hierarchicle			in Hierarchicle	a parent class can have more then 1 childs means multiple class can access propertiese of 
+						parent class
+
+	     Class Animal{					// Parent class
+		
+		void eat(){
+			System.out.println("I AM EATING");
+		}
+	     }
+
+	     Class Dog extends Animal{				// Child class
+		
+		void run(){
+			System.out.println("I AM RUNNIMG");
+		}
+	     }
+
+	     Class Cat extends Animal(){
+
+		void Sleep(){
+			System.out.println("I AM SLEEPING");
+		}
+
+		pulic static void main(String[] args){
+			Animal obj1 = new Animal();
+			obj1.eat();			// that is possible because we are inhariting Animal method via Animal object
+			//obj1.run();			// that's not leagle
+			//obj1.Sleep();			// that's not leagle
+		
+			Dog obj2 = new Dog();
+			obj2.eat();
+			obj2.run();
+			// obj2.Sleep();
+
+			Cat obj3 = new Cat();
+			obj3.eat();
+			obj3.run();			// that's not leagle, cause we are inheriting Animal's properties not Dog's
+			obj3.Sleep();
+			
+	     } 
+ Q.15 What are 2 types of Ineritence Not supported in JAVA?
+
+		They are 2 more types of Inheretence* 
+
+		-> Multiple (Not supported in JAVA)
+		-> Hybrid (Not supported in JAVA)
+
+  	# We can not access Constructor method and private method/variable
+	# Every class has parent class except Object class cause object class is parent of all the classes🏍
+	# Every class can have only one parent/super class because JAVA does not support multiple inheritence
+
+ Q.16 Explain IS-A and HAS-A relationship..
+
+ => INHERITENCE (IS-A) AND ASSOCIATION (HAS-A)
+
+		Inheritence :
+
+		-> Inheritence is IS-A type relationship
+		-> In inheritence we use 'extends' keyword
+		-> In inheritence there is blood relation between 2 classes
+		-> In inheritence 2 classes are tightly coupled
+
+		Association :
+
+		-> Association is HAS-A type relationship
+		-> In this we use 'new' keyword
+		-> In this there is non-blood relation between 2 classes
+		-> In this 2 classes are not tightly coupled
+
+		Example :- 
+
+			Class Student(){
+
+				String name;
+				int roll_number;
+
+			}
+			
+			Here Studente HAS-A name and Student HAS-A roll_number
+
+ Q.17 What are 2 types of Association
+
+	    There are two types of Assocoation 
+		
+		1. Aggrigation (Weak bonding)
+
+			Suppose we have a musicplayer in car but car can movie without musicplayer and a musicplayer can play song without car. So there is 
+			weak bonding between class car and class musicplayer
+
+		2. Composition (Strong bonding)
+    		
+			Suppose we have a Engine in car and car can't movie without Engine and an Engine nothing without rest part of car. So there is 
+			Strong bonding between class car and class Engine
+
+		example of both are at --> https://www.youtube.com/watch?v=9nRblRcb35Y&list=PLlhM4lkb2sEhf5NlWeYh_gdcN49pHjVP0&index=4     after 21:10 min
+
+ Q.18 What is Polymorphism 
+
+ => #POLYMORPHISM                 // Real life ex. Water can be in different forms like vapour, liquid, ice
+		
+		Polymorphism is the ability to perform a single task in different ways.
+
+	Types :   1) Compiletime polymorphism. (Method Overloading) Compile-time polymorphism is a polymorphism that is resolved during the 
+		     				                    compilation process
+
+		  2) Runtime polymorphism.     (Method Overriding) Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an
+					       			   overridden method is resolved at runtime rather than compile-time.
+
+ Q.19 Explain Method Overloading explain with Syntex .. 
+
+		1_ Method Overloading  : 
+
+			-> It should have same name of methods
+			-> Should have same class
+			-> Different arguments 					
+				- No. of arguments can be different
+				- Sequence of arguments can be different
+				- Type of arguments can be different
+
+			@ What if we have methods with same argumentss and same name then compiler will get confused which one should get called first
+			  and it will throw an error : and error name is Embiguity error 
+
+			Q.1 Can we achive method overloading by changing only return type of method ?
+			Ans No, because we call method by name not by retur type and it will show Ambiguity error
+
+			Q.2 Can we overload main() method ?
+			Ans Yes, but arguments must be different
+
+
+		EXAMPLE :- 
+			
+			Class Hotel {
+
+				void Room(String b){				// 1 arguments
+					System.out.println("Room no. 1");
+				}
+		
+				void Room(int a){				// M2 it has different type of argumentes then M1
+					System.out.println("Room no. 2");
+				}
+
+				void Room(int a, String b){			// M3 it has different/more number of argument then M1 and M2
+					System.out.println("Room no. 3");
+				}
+
+				void Room(String b, int a){			// M4 it has different sequence of argument with compare of M3
+					System.out.println("Room no. 4");
+				}
+
+				public static void main(String[] args){
+					Hotel hotel_1 = new Hotel();
+					hotel_1.Room("Good");			// Method M1 was called
+					hotel_1.Room(10);			// M2 was called
+					hotel_1.Room(10,"Good");		// M3 was called	
+					hotel_1.Room("Good",10);		// M4 was called🐱‍🐉
+				}
+			}
+
+ Q.20 What is automatic promotion ?
+
+			// In this case Method with 'int' argument will get called because of 'Automatic Promotion' 🤔
+
+			// Autmatic Promotion : if same data type was not found then Java automatically promotes each
+			   byte, short, or char operand to int when evaluating an expression.
+			
+			// Byte -> Short
+			// Short -> int
+			// char -> int
+			// int -> float, double, long
+			// float -> double
+			// long -> float, double
+			// double -> to no-one
+
+		Lets take a different case : 🤔
+			Class Test{
+				
+				void show(int a){				//passes int argument
+					System.out.println("int method");
+				}
+
+				void show(String b){				// passes String argument
+					System.out.println("String method");
+				}
+				
+				public static void main(String[] args){
+					Test t = new Test();
+					t.show('s');				// But we passed Char DataType here which method will get called ?
+				}
+			}
+ Q.20 Explain Method Overriding explain with Syntex ..
+
+		2_ Method Overriding  :
+
+
+			-> It should have same name of methods
+			-> Should have different class
+			-> Same Arguments
+				- No. of arguments can same
+				- Sequence of arguments can be same
+				- Type of arguments can be same
+			-> Inheritence (IS-A Relationship)
+
+
+			Class Test{
+				
+				void show(){				
+					System.out.println("first method");
+				}
+			}
+			Class Best extends Test{					// here we are inheriting property of upper(Test) Class
+				void show(){ 						//Same method, diff class, same arguments 
+					System.out.println("second method"); 			
+				}
+			
+				public static void main(String[] args){
+					Test t = new Test();
+					t.show();					// Here it will call method from Test class
+					Best b = new Best();
+					b.show();					// Here it will call same method but from Best class
+				}
+			}
+
+
+		* in Runtime Polymorphism we can change implementation as per our need.
+
+
+ Try some interview Question
+
+		Q. Do Override method must have same return type
+		Ans Before Java v1.4 return type of both classes should be same but after 1.4 we can use 'coverent' return type
+			Coverent ? In Coverent means, return data-type of child class should be sub-type or equal of parent class, for example 
+				   in class Test it should have object return type and Best should have string, int etc and.
+				- [Byte, Short, Int, Long, Float, Double] are sub type of Number and Number is sub type of Object 
+				- rest all String, StringBuffer, StringBuilder, char, void and boolean are sub-type of Object
+
+		Q. Overriding and Access Modifire
+		Ans In overriding chaild class should have access modifire with more accessability then its parent class
+		    means ^If Test class has Default access modifire then Best class should have public A-modifire(Public > Default & Protected)
+
+		Q. Can we call parent class method in overriding method 
+		Ans Yes by using 'Super' Keyword  Ex. :-
+
+			Class Test{
+				
+				void show(){				
+					System.out.println("first method");
+				}
+			}
+			Class Best extends Test{					
+				void show(){ 	
+					super.show();					// by super keyword it will call parent class's 'show' Method					
+					System.out.println("second method"); 			
+				}
+			
+				public static void main(String[] args){					
+					Best b = new Best();
+					b.show();					
+				}
+			}
+
+		Q. Which method can't override
+		Ans You can not override method with Final, static and private keywords
+
+		@ There are 2 key word synchronized and strictfp, if we write these keyword in front of any method child/parent they will not affect
+		  overrifing rules.(There presence is nearly equal to absence);
+
+
+ => #ABSTRACTION  		
+
+	We can achive abstraction by 'Abstract class' and 'Interface'
 	
+	Abstraction ->			// by Abstract method we can achive 0 to 100% abstraction  
+
+	- Abstract method is a method with no implementation
+	- The class contains abstract method must be an abstract class but its not neccesary to have abstract methods inside abstract class
+	- We can't make object of abstract class. why so? because generally we make objects to call method inside that class but if method is abstract 
+	  then no need to call it cause that method has no body(Implementation)
+	- If we Iheriting properties abstract class in another class then child class must have implementation of all the abstract method
+	  inside abstract class
+	- Method overriding concept is used in Abstraction because both class's method has same name, diff class, same args😁
+
+
+		Syntex :
+			
+			abstract Class Vehicle{					 // class is astract cause it has abstract method
+				
+				int count_tyers;
+				astract void start();				 // no implementation
+			}
+			class Car extends Vehicle{				 //Inheriting Vehicle class using 'extends' keyword
+				void start(){					 //same args, same method name {method overriding}
+					System.out.println("Start with key");	 //Implementing here 
+				}
+			}
+
+
+	INTERFACE ->			// by Interface we can achive 100% Abstraction
+
+
+	- Interface can have only abstract method no concrete method(Before Java v.8,9)
+	- Interface used to achive abstraction
+	- By using Interface we can achive 'Multiple Inheritence' in java
+	- Interface is used to achive 'loose coupling'	
+
+		Syntex : 
+		
+		interface InFace1{
+		
+			void show();				// whenever we create method inside interface by default it will be always
+								   'public' and 'abstract'
+
+		        default void display(){         	// Twist 😎 after JAVA version 8 we can create 'default' concrete 
+							   	   and 'static' concrete methods
+			}			
+		        static void display(){
+			}	
+
+			private void sum(){			// After 9th version of JAVA we can create 'private' concrete methods also
+			}
+			
+			int num = 10;				// every field(variable) will be 'public', 'static' and 'final'(constant)
+		}
+
+		interface InFace2{				// another interface for multiple inheritence
+			void display();
+		}
+
+		class Text implements InFace1, InFace2 {		// To inherite interface we use 'implements' at place of extends
+									// we've to create body here for abstract method from 'InFace1' and 'InFace2'
+			
+			public void show(){			// in child class we must have same access modifire or access modifire with 
+								   Stronger privillage  then parent class (Like Abstraction method)
+			    System.out.println("1");	   
+			}
+
+			public void display(){
+			    System.out.println("2");
+			}
+			
+			public static void main(String[] args){
+				
+			    Inface1 I = new InFace1();		// this is not possible cause we can't make object of Interface
+
+			    Text t = new Text();		// we can make object of its own class
+			    t.show();
+			    t.display();
+			}
+		}
+
+			
+		-> Similarities and Differences between Abstract class and Interface
+
+			1. Abstract class can have abstract and concrete method but interface can have abstract methods only
+			2. Abstract class can have public, protected, private and default access modifiers but interface can have
+			   only public fields and methods
+			3. Abstract class shold be extended by 'extends' keyword but for interface we should use 'implements'
+			4. Abstract class may contains non-final fields but in interface fields must have final keyword
+			5. By using Abstract class we cant achive Multiple Inheritence but in Interface we can achive 
+			6. We can't make objects of both Abstract class or Interface
+			7. Both use method overrideing concept
+			8. In both child class should have stroger access modifire then parent class or they can be equal
+			9. In both child class shoold have implementation of anstract methods from parent 
+		       10. We can achive abstraction by 'Abstract class' and 'Interface' but by Interface we can achive 100% Abstraction 
+			
+			
+			
+ => #ENCAPSULATION 		
+
+	wraping up variable(data) and methods(operation on data) in a single unit called Encapsulation
+
+	variable(data) access modifire should be private and methods should be public to access or modify data and perform operation on it
+
+		Sysntex : 
+
+			class Employee{
+
+				private int emp_id = 121;
+
+				public void set_id(int id){
+					emp_id = id;
+				}
+				public int get_id(){
+					return emp_id;
+				}
+			}
+			
+			class Test{
+			
+				public static void main(String[] args){
+
+					Employee C = new Employee();
+					C.set_id(122);
+
+					System.out.println(C.get_id);
+				}
+			}
+
+
+ => THIS (Keyword)
+
+	'this' keyword is a refference variable which is used to reffer current class object
+
+
+	Syntex : 
+
+		class Test{
+
+			int a ;
+
+			void setValue(int a){
+				//a = a;			// here we have local and instance variable with same name if we run our program then it
+								   will print 0(default value of int) cause both 'a' are reffering to local variable
+								   its fine when we have different varible name of instance variable then local variable  
+								
+				this.a = a;			// but if we use 'this' keyword with 'a' on the left then 'a' will reffer to the instance
+								   variable 'a' and 'a' on the right will reffer to the local(of method) variable
+			}
+			void showValue(){
+				System.out.println(a);
+			}
+		}
+
+		class Present extends Test{
+
+			public static void main(String[] args){
+				Test t = new Test();
+				t.setValue(10);
+				t.showValue();
+			}
+		}
+
+		
+		Uses of 'this' keyword 
+
+		1. 'this' keyword is a refference variable which is used to reffer current class object as shown alreaday
+
+		2. It is used to invoke current class method.
+
+		Syntex : 
+
+			class Test{
+				void display(){
+					System.out.println("printing");
+				}
+				void show(){
+					//display();			//if we don't write this infront of display compiler will automatically add it
+
+					this.display();
+				}
+				
+				public static void main(String[] args){
+					Test t = new Test();
+					t.show();					
+			}
+
+
+		3. It is used to invoke currunt class constructor also.
+
+		Syntex :
+
+			class Test{
+			
+				Test(){						// non parameterised constructor (constructor -> same name as class)
+				   //this(10);					// by inserting parameter in 'this' i can call parameterized constructor
+				   System.out.println("non parameterized");
+				}
+
+				Test(int a){
+				   // this();					// by this function('this' keyword + braces) i can call above constructor
+				   System.out.println("paramertrized constructor");
+				}
+
+				public static void main(String[] args){
+				
+					Test t = new Test();		// we can pass parameter to call parameterized cunstructor else it will call non-prm
+
+				}
+			}
+
+		4. 'this' Keyword can also used as a return type;
+		  
+     			There are 3 more uses if you wat to know check this link >
+
+			 https://www.youtube.com/watch?v=luqSba3AGZU&list=PLlhM4lkb2sEhf5NlWeYh_gdcN49pHjVP0&index=11
+
+
+ => SUPER keyword
+
+	'super' keyword is also a reffrence variable used to reffer parent class of object 
+
+		Syntex : 
+			
+			class Test{
+				int a = 20;
+			}
+
+			class Best extends Test{
+				int a = 30;
+
+				void print(int a){
+					System.out.println(a);			// this statment will print local variable so output will be 10 
+					System.out.println(this.a);		// this statment will print 30 because 'this' keyword reffering to 
+										   currunt class instance variable
+					System.out.println(super.a);		// this statment will print 20 because 'super' keyword reffering to
+										   parent class instance variable
+				}
+
+				public static void main(String[] args){
+					Best b =  new Best();
+					b.show(10);
+				}
+			}
+
+		2. 'super' is used to invoke immediate parent class method.
+
+		Syntex : 
+
+			class Test{
+
+				void display(){
+					System.out.println("method from parent class");
+				}
+			}
+
+			class Best extends Test{
+
+				void display(){
+					System.out.println("method from current class");
+				}
+
+				void show(){
+					display();				// it will call display method from current class because compiler
+										   will add 'this' keyword in front of display method
+					super.display();			// it will call display method from parent class
+				}
+
+				public static void main(String[] args){
+					Best b  =  new Best();
+					b.show();			
+				}
+			}
+
+		3. 'super' keyword can be used to invoke immediate parent class methods
+
+
+		Syntex : 
+
+			class Test{
+
+				Test(){
+					System.out.println("method from parent class");
+				}
+			}
+
+			class Best extends Test{
+
+				Best(){
+					// super();					// compiler will add 'super()' here before exacuting child class 
+											   constructor if not provided
+					System.out.println("method from current class");
+
+				}
+
+				public static void main(String[] args){
+
+					Best b  =  new Best();				// here	we are creating object of Best class so 'Best()' constructor
+											   should get call first but 'Test()' constructor will get call 
+											   first because compiler will call 'Test()' constructor via 'super()'
+											   keyword 
+		
+				}
+			}		 
+
+
+		--  'super' is a keyword but 'super()' is used in constructors
+
+ 
+ => FINAL keyword 
+		
+		'final' keyword is used with variable, method and class
+
+		1. We use 'final' keyword to make a variable constant
+
+		
+		Syntex : 
+		
+			class Test{
+				public static void main(String[] args){
+
+				final int i = 2;
+				i = i+3;				// we can't re-initialize this cause of final keyword
+				System.out.println();
+
+				}
+			}
+
+		2. We use 'final' to prevent method overriding
+
+		Syntex :
+
+			class Test{
+
+				final void display(){
+					System.out.println("123");
+				}
+			}
+
+			class Best extends Test{
+				void display(){				// we can't override display method cause final keyword didn't allow that
+					System.out.print("456");
+				}
+				public static void main(String[] args){
+					Test t = new Test();
+					t.display();
+				}
+			}
+
+		3. We use 'final' keyword with class so that no class can inherit its properties
+
+		Syntex :
+
+			final class Test{
+
+				final void display(){
+					System.out.println("class with final keyword");
+				}
+			}
+
+			class Best extends Test{			// we can't inherit class 'Test' cause of final
+				void display(){				
+					System.out.print("456");
+				}
+				public static void main(String[] args){
+					Test t = new Test();
+					t.display();
+				}
+			}
+
+				
+	Types of Accessmodifiers -> public, private, default, protected 
+
+	Types of Non-Acces Modifiers -> static, final, abstract, synchronized, volatile, transient, and native.
+
+
+ => STATIC  
+
+	static is a keyword which is used with vriable(class level), method, blocks and innner class(Nested class)
+
+		1. Use with variables 
+
+			we use static variable for memory menagement
+
+		Syntex 1 : 
+
+			class Test{
+
+				static int a = 10;			// this is correct cause it is a class level variable
+
+				void display(){
+					static int b = 10;		// it's wrong cause we can't make local variable static
+				}
+			}
+			
+			class Best{
+		
+				public static void main(String[] args){
+					System.out.println(Test.a);	// you can print value of 'a' by using dot(.) operator with class else you have to 
+									   inherit class 'Test' and make an object of it... then you can call it by its object
+
+
+		Syntex 2 :
+
+			class Employee{
+
+				int id;
+				String name;
+				static String company = 'IBM';			// we make company static to save memory .. because every employee has same
+										   company name. we can't make companu static if company name is diff for 
+										   every Employee
+
+				Employee(int e_id, String e_name){
+					this.id = e_id;
+					this.name = e_name;
+				}
+
+				void display(){
+					System.out.println(id+" "+name+" "+company);
+				}
+			
+				public static void main(String[] args){
+
+					Employee e1 = new Employee(111,"elena"); // we are not intializing company name here for every Employee cause 
+					e1.display();				    company is commonly initialized by static keyword
+										    else it will occupy space for every Employee
+					
+
+					Employee e2 = new Employee(112,"chloe");
+					e2.display();
+
+					Employee e3 = new Employee(113,"sam");
+					e3.display();
+
+					Employee e1 = new Employee(114,"zenfer");
+					e4.display();
+
+			      	}
+
+		The static variable occupy memory onnly once in the class area st the time of class loading
+
+		foe better explaination watch this from youtube -> 26:11 = https://www.youtube.com/watch?v=uJHlGeEA7Aw&t=526s
+
+	
+	2. Static Methods
+		
+			Methods have static keyword are static methods. And these are used for memory menagement
+
+		Syntex : 
+
+			class Test{
+
+				void show(){
+					System.out.println("non static method");
+				}
+
+				static void display(){
+					System.out.println("static method");
+				}
+
+				public static void main(String[] args){
+
+					Test t = new Test();
+					t.show();			// here we can see that to call a non static method we need to create an object
+
+					display();			// when we comes to call a static method we can call it by class name and without
+									   class name when you calling it in same class, no need tocreate an object thats
+									   why it help in memory menagement
+
+					Rendom.print(); 		// if we need to call a method from different class then you can call them by class
+									   name(like this)
+	
+				}
+			}
+
+			class Random{
+
+				void print(){
+
+					System.out.println("method from Random class");
+
+				}
+			}
+
+			Rule no. 1 = static method can access only static data
+
+			Syntex : 
+
+				class Test{
+
+					int i = 2;
+					static void show(){
+	
+						System.out.println(i);		// you can't access non static data .. to print 'i' make it static‍✌
+					}
+				} 
+
+			Rule no. 2 = You can't call nonstatic method inside static method
+
+			Syntex :
+				
+				class Test{
+
+					static int i = 2;
+
+					static void show(){
+	
+						System.out.println(i);
+
+						display();		// you can't access non static method .. to acess 'display' method make it static
+					}
+
+					void display(){
+
+						System.out.println("non static method");
+					}
+				} 
+
+
+			Rule no. 3 = static method can't reffer to 'this' or 'super' keywords
+
+			Syntex : 
+
+				Class Test{
+
+					static int i = 10;
+
+					static void show(){	
+						
+						Syatem.out.println(this.i);		// 'this' and 'super' keyword is not allowed in static method		
+					}
+
+				}
+
+		3. Static Blocks 
+
+			Static blocks are the blockes with static keyword
+
+			static blocks are used to intialize static variable and to load native methods 
+
+			Syntex : 
+
+				class Test{ 
+
+					static{
+					   Syatem.out.println("static block");
+					}
+	
+					static int a;
+
+					static{				
+					      
+					    a = 10; 			// this how we can initialize a static variable
+					}
+
+				}
+
+
+				
+			Static block execute without any call, it executes when class is getting loaded in memory
+
+
+			Q. Can we print 'hellow world' without main method?
+
+			Ans. Yes! we can by using static block. But till 1.6 version of JAVA, after its necessary to write 'main' method
+
+			Q. Can we write multiple static block in java?
+
+			Ans. Yes we can (flow of executing static blocks will be top to bottom and main() method will get executed after
+			     execution of all static blocks
+
+			Execution flow :-
+
+			class Test{
+		
+				static{						    // this block will execute 1st
+
+				   Sytem.out.println("First Block");
+
+				}
+				static{						    // 2nd
+
+				   Sytem.out.println("Second Block");
+
+				}
+				
+				public static void main(Strin[] args){		    // last
+
+					System.out.println("Main method block");
+
+				static{						    // 3rd
+
+				   Sytem.out.println("Third Block");
+
+				}
+
+			}
+				
+
+
+
+
+
+
+				
+
+
+
+
+
