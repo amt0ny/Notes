@@ -1,0 +1,61 @@
+SQL 
+
+Create database DatabaseName;
+
+create table TableName (
+	
+	NameOfColumn  DataType  Size,
+	NameOfColumn  DataType  Size,
+	NameOfColumn  DataType  Size,
+	NameOfColumn  DataType  Size,
+
+	Primary Key(Name of any column have uniqe data)
+
+);
+
+Select * from TableName
+
+insert into Persons(ColumnName1, ColumnName2, ColumnName3) VALUES (
+
+	ColumnName1 Data, ColumnName2 Data, ColumnName2 Data       // data according to datatype
+
+);
+
+select * from TableName where ID = 123 ;
+
+
+select * from TableName where ID = 123 AND Age = 21;
+
+select * from TableName where ID = 123 AND Age = 21;
+
+select count(*) from TableName;
+
+UPDATE Persons SET Age = 22 where Name = 'Pritam';
+
+select * from TableName_1 INNER JOIN TableName_2 ON TableName_1.ID = TableName_2.ID;
+
+select * from TableName_1  T1  INNER JOIN  TableName_2  T2  ON   T1.ID = T2.ID;
+
+select ColumnName1, ColumnName2, ColumnName3 from TableName_1  T1  INNER JOIN  TableName_2  T2  ON   T1.ID = T2.ID; 
+
+select ColumnName1 AS C1, ColumnName2 AS C2, ColumnName3 AS C3 from TableName_1  T1  INNER JOIN  TableName_2  T2  ON   T1.ID = T2.ID; 
+
+select * from TableName_1 where ID NOT IN (121,123);
+
+select * from TableName_1 where ID IN (123,121);
+
+select * from TableName_1 where ID BETWEEN 100 AND 300;
+
+select ID from TableName_1 UNION ALL person_id from TableName_2;
+
+select ID from TableName_2 UNION person_id from TableName_2;
+
+Primary Key:- unique record avilable in database
+
+Foreign key:- foreign key is a feild in one temple that refer to primary key in another temple
+
+
+
+
+
+
