@@ -80,7 +80,7 @@ Hierarchy of Excaption Class :-
 
  (1)Exception that are checked and handled at Compile time CompileTime Exception
  (2)The prigram gives a compilation error if a methid throws a checked exception
- (3)A checked exception occurs whenthe chances of a faliure are to high
+ (3)A checked exception occurs when the chances of a faliure are to high
  (4)They are direct subclasses of Exception class.
 
  (1)Exception that are checked at Compile time are Runtime Exception
@@ -127,10 +127,10 @@ We can handle exception using five keywords
 
   [ finally ]
  
-     Use if finally block:-
+     Use of finally block:-
      
      we use finally block in java to exacute cleanup code like closing connections, 
-     closing filesand freeing up threads.
+     closing files and freeing up threads.
        
   flow chart ||
   we can use finally after try-catch blocks or even after try block only.... but we can't use finally alone. 
@@ -174,12 +174,352 @@ We can handle exception using five keywords
 
  # we can write try catch blocks inside finally block.
  # we never write file closing code with opening code (inside try-block), because what if when exception comes 
-   during reading or writing data of file or rigth after opning the file then we will be
+   during reading or writing data of file or right after opening the file then we will be
    directly jumped to catch-block and closing code will never exacute.
 
 
 
 
+THROW keyword
+
+		// lets learn about Default Exception Handler first
+		
+  class Test{
+
+	public static void main(String args){		// This(main) method will create an object of Exception
+
+            int a = 20;
+            int b = 0;
+            int c = a/b;				// Arthemetic exception 
+            System.out.println(c);
+
+	}
+  }
+
+   -> As we can see main method will craete an object of exception and this object will contain three details about exception
+   	1. Exception Class Name
+	2. Description    (message)
+	3. Stack Trace    (Location)
+
+   -> Now JVM will ask to main method that Main method hendling Exception or not if no then JVM will abnormaly terminate 'main' method(will not execute rest 
+      part of code) and pass that Exception object to Default Exception Hendler and Def. Excp. Hdlr. will print the object
+
+   -> 
+      
+
+   class Test {
+
+	public static void main(String args){
+     		Test t = new Test();
+		t.display();
+		
+	}
+
+	void display(){					// This method will create an object of Exception
+
+	    int a = 20;
+            int b = 0;
+            int c = a/b;				// Arthemetic exception 
+            System.out.println(c);
+
+	}
+
+   -> in this progeam JVM will ask to 'display' method that method hendling Exception or not if no then JVM will abnormaly terminate 'display' method
+      after this JVM will ask to 'main' method pass that Main method hendling Exception or not if no then JVM will abnormaly terminate main method also
+      then JVM will pass the Exception object created by 'display' method to Default Exception Hendler and Def. Excp. Hdlr. will print the object 
+
+
+    WE can handle exception of above code in 2 diff. ways
+
+
+ NO. 1 :-  Inside display() method
+
+
+   class Test {
+
+	public static void main(String args){
+     		Test t = new Test();
+		t.display();
+		
+	}
+
+	void display(){					
+
+	   try{
+
+	    int a = 20;
+            int b = 0;
+            int c = a/b;				
+            System.out.println(c);
+	  }
+
+	  catch(Exception e){
+	    System.out.println(e);
+	  }
+
+	}
+
+ NO. 2 :-  Inside main() method
+
+	public static void main(String args){
+
+     		Test t = new Test();
+
+	      try{	🎃
+
+		t.display(); 
+
+	      } 
+
+	     catch(Exception e){
+
+	       System.out.println(e);
+	  }
+	}
+
+	 void display(){					
+
+	    int a = 20;
+            int b = 0;
+            int c = a/b;				
+            System.out.println(c);
+
+	 }
+       }
+
+
+    // Now real use of Throw Keyword //
+
+	Throw keyword is used to create an Excception object manually and handover to JVM
+	And we use it for custom exception(User defined exception) 
+
+	Main thing is Throw keyword is used to create an Exception object not to handle Exception 
+	And program will terminate abnormally
+
+	Q. we have to throw exception if age is <(less) then 18
+
+	Syntex:
+
+
+		class YongerAgeException extends RuntimeException {   		// we always create a class which extends RuntimeException Class for user 
+										   defined Exception(Custom EXP.)
+			YongerAgeException (String Message){			// we will create a constructor to throw a message
+
+				super(message);					// we are using 'super' keyword here so that it will avilable for its parent
+										   class Default Exception Handler
+			}	
+		}
+
+		public static void main(String[] args){
+
+			Scanner sc = new Scanner();
+			int age = sc.nectInt();
+			
+			if(age < 18){
+			
+				throw new YongerAgeException ("you are not eligibe to vote");		// we are creating object here and passing it to JVM
+			}
+			else{
+				System,out.println("You can vote");
+			}
+		}
+
+		we have thrown the exception but still code will terminatied abnormally because we are not handling Exception Yet!
+		to do that we will you use try-catch block
+
+
+		class YongerAgeException extends RuntimeException {   		 
+										   
+			YongerAgeException (String Message){			
+
+				super(message);					
+			}	
+		}
+
+		public static void main(String[] args){
+
+			Scanner sc = new Scanner();
+			int age = sc.nectInt();
+			
+			try{
+			
+				if(age < 18){
+			
+					throw new YongerAgeException ("you are not eligibe to vote");
+
+					// we can not write any statment after throw cause if exception occured then it will jump to catch block directly
+				}
+				else{
+					System,out.println("You can vote");
+				}
+			}
+			catch(Exception e){				// we can write Class name here at place of Exception which will
+									   perform the same thing
+				e.printStackTrace();			
+			}
+		}
+
+		-> if a programer creates an exception class then programer is responsible to create an object of it
+
+		-> we can use throw keyword with chacked or unchecked exception but we prefer to use in custom exception(User defined Exp) and we create 
+		   costmize exception mostly in Unchecked Exceptiton 
+
+
+
+
+ THROWS keyword  :-
+
+	Throws keyword is used with a method to declare Exception and it indicate caller method that this method can cause an exception
+	So it's caller method's responsibiity to handle that exception.
+	Throws keyword always use for checked exeption only
+
+
+	Syntex:  
+	
+	    class ReadAndWrite{
+	
+			void readfile() throws FileNotFoundException {			// throws keyword will indicate about exception not handle
+
+				FileInputStream fis = new FileInputStream("d/:abc.txt");  // here we want read a file from given address
+
+			}
+
+			void savefile() throws fileNotFoundException {
+
+				FileOutputStream fis = new FileOutputStream("d/:abc.txt");
+
+			}
+	   }
+
+	   class Test{
+
+			public static void main(String[] args){  	// we can use throws keyword with main method also But main() method is called by JVM 
+									   main() method will create an object of exception and handover it to JVM and JVM
+									   will pass it to Default Exception Handler which is not prefereble
+
+				ReadAndWrite rw = new ReadAndWrite();
+
+			     	try{
+				   rw.readfile();      			// calling a method from another class which can cause an exception and we handling it
+									   by try catch blocks
+			     	}
+
+			     	catch( FileNotFoundException e){
+				   e.printStackTrace();
+				}
+
+
+			     	try{
+				   rw.savefile();
+			     	}
+
+			     	catch( FileNotFoundException e){
+				   e.printStackTrace();
+				}
+
+			}
+
+
+=>	Difference bteween THROW and THROWS
+
+
+		Throw
+
+			0. Throw keyword it used to create an excepion.
+			1. It is used for unchecked exceptions.
+			2. In throw we can use only single type of exception.
+			3. Throw keyword used inside a method.
+			4. Throw keyword is followed by the new instance.
+			5. We can't write any statement after Throw keyword, cause it can throw exception.
+
+
+		Throws 
+
+			0. Throw keyword it used to declare an excepion.
+			1. It is used for checked exceptions.
+			2. In Throws we can use multiple exception using coma(,) between each.
+			3. Throws keyword used with method signature.
+			4. Throw keyword is followed by the class not by instance.
+			5. We can write any statement after Throws keyword.
+
+
+	
+	
+=>	Customized or user defined Exception
+
+	There are two types of exception "Checked" or "Uncehecked".
+	If you want that your exception class should be in Checked Exception catagory then you have to inherit 'Exception'.
+	Else you've to inherit 'Runtime Exception'.
+
+
+
+	-> Syntex For Checked Exception :
+
+		class UnderAgeException extends Exception{	// using 'Exception' Keyword so it will come under 'Checked Exception'
+
+			UnderAgeException(){			// its a cunstructor has same name as class and have no reterun type
+				super("You are under age");	// 'super' keyword is used to pass message to 'Default Exception Handler'
+			}
+
+			UnderAgeException(String message){	// using method over loading
+				super(message);
+			}
+		}
+
+		class Voting{
+
+			public static void main(String[] args){
+
+				int age = 17;
+
+				if(age < 18){
+				    throw new UnderAgeException();   // we can pass any message in it cause we have a parametrized constructor also in upper class
+					
+				}
+		
+				else{
+				    System.out.println("You can vote");
+				}
+			}
+
+		BUT !!!!  This code will not compile sucessfully, to make it success we should handle exception by try{} catch{} or by 'Throws' Keyword
+
+			
+
+	-> Syntex For Unchecked Exception :	
+
+		class UnderAgeException extends RuntimeException{	// using 'RuntimeException' Keyword so it will come under 'Unhecked Exception'
+
+			UnderAgeException(){			
+				super("You are under age");	
+			}
+
+			UnderAgeException(String message){	
+				super(message);
+			}
+		}
+
+		class Voting{
+
+			public static void main(String[] args){
+
+				int age = 17;
+
+				if(age < 18){
+				    throw new UnderAgeException();   // we can pass any message in it cause we have a parametrized constructor also in upper class
+					
+				}
+		
+				else{
+				    System.out.println("You can vote");
+				}
+			}
+
+		BUT !!!!  This code will compile sucessfully but code will not execute completely it will get terminated, to make it success we 
+		          should handle exception only* by try{} catch{} blocks
+
+		One thing we have used 'Throw' keyword with checked or unchecked exception cause 'Throw' Keyword is best for Customized it can be Checked or
+		Unchecked.
 
 
 
@@ -187,4 +527,31 @@ We can handle exception using five keywords
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+	
 
